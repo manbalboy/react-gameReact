@@ -42,6 +42,7 @@
                     value: '',
                 })
             }
+            this.input.focus();
         }
 
         onChange = (e) => {
@@ -50,6 +51,8 @@
             })
         }
 
+        input;
+
         render() {
             return (
                 <React.Fragment>
@@ -57,6 +60,7 @@
                     <form onSubmit={this.onSubmit}>
                         <input type="number"
                                value={this.state.value}
+                               ref={(c) => {this.input = c}}
                                onChange={this.onChange}/>
                         <button>입력!</button>
                     </form>
