@@ -1,9 +1,9 @@
 const path = require('path');
 
 module.exports = {
-    name: 'wordrelay-setting',
+    name: 'gugudan-setting',
     mode: 'development',
-    devtool: 'eval',
+    devtool: 'eval', //hidden-source-map
 
     resolve: {
         extensions: ['.js', '.jsx']
@@ -18,7 +18,7 @@ module.exports = {
         {
             rules : [
                 {
-                    test : /\.jsx?/,
+                    test : /\.jsx?$/,
                     loader: 'babel-loader',
                     options : {
                         presets : ['@babel/preset-env' , '@babel/preset-react'],
