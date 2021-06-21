@@ -29,9 +29,11 @@ class NumberBaseBall extends Component {
     onSubmitForm = (e) => {
         e.preventDefault();
         if (this.state.value === this.state.answer.join('')) {
-            this.setState({
-                result: '홈런',
-                tries: [...this.state.tries, {try: this.state.value, result: '홈런!'}]
+            this.setState((prevState) => {
+                return {
+                    result: '홈런',
+                    tries: [...prevState.tries, {try: this.state.value, result: '홈런!'}]
+                }
             })
         } else {
             const answerArray = this.state.value.split('').map((v) => parseInt(v));
@@ -55,11 +57,13 @@ class NumberBaseBall extends Component {
                     } else if (this.state.answer.includes(answerArray[i])) {
                         ball += 1;
                     }
-                    this.setState({
-                        tries: [...this.state.tries, {try: this.state.value, result: `${strike} 스트라이크 ${ball} 볼`}],
-                        value: '',
-                    })
                 }
+                this.setState((prevState) => {
+                    return {
+                        value: '',
+                        tries: [...prevState.tries, {try: this.state.value, result: `${strike} 스트라이크 ${ball} 볼`}],
+                    }
+                })
             }
         }
 
