@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const RefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 module.exports = {
@@ -35,7 +36,7 @@ module.exports = {
         ]
     },
 
-    plugins: [new RefreshWebpackPlugin()],
+    plugins: [new RefreshWebpackPlugin(),new webpack.LoaderOptionsPlugin({debug : true})],
 
     output: {
         path: path.join(__dirname, 'dist'),
