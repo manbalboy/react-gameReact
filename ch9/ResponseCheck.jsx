@@ -49,6 +49,12 @@ class ResponseCheck extends Component {
         }
     }
 
+    onReset(){
+        this.setState({
+            result :[]
+        })
+    }
+
     render() {
         return (
             <>
@@ -67,6 +73,8 @@ class ResponseCheck extends Component {
                         </div>
                     )
                 }
+                
+                <button onClick={this.onReset}>리셋</button>
 
             </>
         )
